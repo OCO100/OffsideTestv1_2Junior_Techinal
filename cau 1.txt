@@ -1,0 +1,5 @@
+1.
+SELECT db.student_id,sum(db.absent_flag = 0) as number_of_absent_dates
+from (select DISTINCT checkin_Date,student_id,absent_flag from attendance) as db
+GROUP BY db.student_id
+HAVING number_of_absent_dates > 3;
